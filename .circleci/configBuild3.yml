@@ -10,14 +10,7 @@ jobs:
       - run: npm --version
       - run: npm install
       - run: npm run test
-  afterTests:
-    machine: true
-    steps:
-      - run: echo "tests have passed!"
 workflows:
   build:
     jobs:
       - checkoutAndTest
-      - afterTests:
-          requires:
-            - checkoutAndTest
